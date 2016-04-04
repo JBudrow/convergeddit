@@ -4,10 +4,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params['email'],
-                         password: params['password'])
-    if @user
-      session['notice'] = "Logged in."
+    @user = User.find_by(email: params['email'])
+    if @user && @user.authenticate(params['passwordrail'])
+      session[:user_id] = @user.id
+      flash[:notice] = "Logged in."
       redirect_to root_url
     else
       flash['notice'] = "No matches found."

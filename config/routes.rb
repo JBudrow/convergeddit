@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
 
 
-  root 'reddit#home'
+  root 'links#index'
 
-  get  'signup', to: 'users#new'
+  get  'signup',  to: 'users#new'
 
-  get 'login',   to: 'sessions#new'
-  get 'login',   to: 'sessions#create'
-  get 'logout',  to: 'sessions#destroy'
+  get  'login',   to: 'sessions#new'
+  post 'login',   to: 'sessions#create'
+  get  'logout',  to: 'sessions#destroy'
 
   get 'sessions/new'
 
-
-  resource :users, :links
+  resources :users, :comments, :links
 
 
   # The priority is based upon order of creation: first created -> highest priority.

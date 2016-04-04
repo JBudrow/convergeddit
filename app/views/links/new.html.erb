@@ -1,16 +1,14 @@
 <%= form_for(@link) do |f| %>
-
   <div class="link-form">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="new-">
+  <div class="link-form">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
   <br>
-  <div class="form-group">
-    <%= f.submit "Submit" %>
-  </div>
-
+  <%= f.submit 'submit' %>
 <% end %>
+
+<%= link_to 'back', links_path %>
