@@ -15,7 +15,7 @@
           <% if logged_in_user %>
              <ul class="nav-logged">
                <li><%= link_to "preferences", "#"%></li>
-  			   	   <li><%= link_to 'log out', "#"%></li>
+  			   	   <li><%= link_to 'logout', login_path, method: :delete%></li>
              </ul>
           <% else %>
              <ul class="nav-not-logged">

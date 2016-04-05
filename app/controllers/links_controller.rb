@@ -33,6 +33,12 @@ class LinksController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    link = Link.find(params['id'])
+    link.destroy
+    redirect_to root_url
+  end
+
   private
   def link_params
     params.require(:link).permit(:title, :url)
