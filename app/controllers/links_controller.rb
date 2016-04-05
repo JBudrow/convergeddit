@@ -15,7 +15,8 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = logged_in_user.links.new(link_params)
+    @link = logged_in_user.links.new(title: params['title'],
+                                     url: params['url'])
     if @link.save
       redirect_to root_url
     else
@@ -28,8 +29,9 @@ class LinksController < ApplicationController
   end
 
   def update
-    # @link = Link.find(params['id'])
-    @link.update(link_params)
+    link = Link.find(params['id'])
+    link.update(title: params['title'],
+                url: params['url'])
     redirect_to root_path
   end
 
@@ -39,8 +41,8 @@ class LinksController < ApplicationController
     redirect_to root_url
   end
 
-  private
-  def link_params
-    params.require(:link).permit(:title, :url)
-  end
+  # private
+  # def link_params
+  #   params.require(:link).permit(:title, :url)
+  # end
 end
