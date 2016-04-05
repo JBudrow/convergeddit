@@ -6,7 +6,12 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
-    render 'new'
+    if logged_in_user
+      render 'new'
+    else
+      flash[:notice] = "login to add post"
+      redirect_to root_url
+    end
   end
 
   def show
