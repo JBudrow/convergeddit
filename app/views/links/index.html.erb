@@ -1,12 +1,35 @@
-<% @links.each do |link| %>
-  <div class="link-anchor">
-    <h2>
-      <%= link_to link.title, link %><br>
-      <small class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></small>
-    </h2>
+<nav class="navi-bar">
+  <span>hot</span>
+  <span>new</span>
+  <span>rising</span>
+  <span>controversial</span>
+  <span>top</span>
+  <span>gilded</span>
+  <span>wiki</span>
+  <span>promoted</span>
+</nav>
 
-    <div class="link-button">
-      <a class="link-button" href="<%= link.url %>">Visit Link</a>
-    </div>
-  </div>
-<% end %>
+<ol class="links">
+  <% @links.each do |link| %>
+    <div class="link-anchor">
+      <li>
+        <h4><%= link_to link.title, link %></h4></br>
+        <%= simple_format(link.url) %>
+        <%= link_to("edit", edit_link_path(link)) %>
+        <%= link_to("comments", link_path(link)) %>
+        <span>share</span>
+        <span>save</span>
+        <span>hide</span>
+        <span>report</span>
+      </li>
+  <% end %>
+</ol>
+
+<div class='side'>
+  <li class='submit-link'>
+    <%= link_to 'Submit a new link', new_link_path %>
+  </li>
+  <li class='submit-text'>
+    <%= link_to 'Submit a new text post', '#' %>
+  </li>
+</div>

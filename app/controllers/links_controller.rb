@@ -9,6 +9,11 @@ class LinksController < ApplicationController
     render 'new'
   end
 
+  def show
+    @link = Link.find(params['id'])
+    render 'show'
+  end
+
   def create
     @link = logged_in_user.links.new(link_params)
     if @link.save
@@ -18,8 +23,18 @@ class LinksController < ApplicationController
     end
   end
 
+  def edit
+    @link = Link.find(params['id'])
+  end
+
+  def update
+    # @link = Link.find(params['id'])
+    @link.update(link_params)
+    redirect_to root_path
+  end
+
   private
   def link_params
-      params.require(:link).permit(:title, :url)
+    params.require(:link).permit(:title, :url)
   end
 end
