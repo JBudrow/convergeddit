@@ -19,8 +19,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: convergeddit
+  database: convergeddit-test
 
 production:
   <<: *default
-  database: convergeddit
+  database: convergeddit-production 
