@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgres as the databse for Active Record
@@ -37,6 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Call 'pry' anywhere to debug
+  gem 'pry'
 end
 
 group :development do
