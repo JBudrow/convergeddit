@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_action :authenticate!, except: [:index,:show]
+
   def index
     @links = Link.all
     render 'index'
@@ -42,7 +44,11 @@ class LinksController < ApplicationController
 
   def destroy
     link = Link.find(params['id'])
-    link.destroy
+    if logged_in_user.id == link.user_id
+      link.destroy
+    else
+      flash[:notice] = 'access denied'
+    end
     redirect_to root_url
   end
 
