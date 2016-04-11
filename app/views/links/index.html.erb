@@ -15,7 +15,7 @@
       <li>
         <h4><%= link_to link.title, link %></h4></br>
         <%= simple_format(link.url) %>
-        <p class="link-date">submitted <%= time_ago_in_words(link.created_at) %> ago by #name</p>
+        <p class="link-date">submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></p>
         <%= link_to("comments", link_path(link)) %>
         <%= link_to("edit", edit_link_path(link)) %>
         <%= link_to("delete", link_path(link), method: :delete) %>
