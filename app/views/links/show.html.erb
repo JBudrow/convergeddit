@@ -1,20 +1,17 @@
-<%= render partial: "link", locals: {link: @link} %>
+<%= render partial: 'link', locals: {link: @link} %>
 
-<div class="comments-form">
-    <h5>top #number comments</h5>
-    <%= form_tag(links_path(@link.id)) do %>
-      <div class="comment-field">
-          <%= text_area_tag("body", nil, cols: 40, rows: 8) %>
-      </div>
 
-      <%= button_tag("save") %>
-    <% end %>
+<h7 class='comments_count'>
+  <span>top </span><%= @link.comments.count %> comments<span> show all blah</span>
+</h7>
+
+<div class='comments'>
+  <%= render :partial => @link.comments %>
 </div>
-
-<div class="comments">
-  <% @link.comments.each do |comment| %>
-      <div class="link-comment">
-          <%= simple_format(comment.body) %>
-      </div>
-  <% end %>
-</div>
+<%= form_for [@link, Comment.new]  do |f| %>
+  <div class='field'>
+    <%= f.text_area :body%>
+  </div>
+  <br>
+  <%= f.submit 'save' %>
+<% end %>

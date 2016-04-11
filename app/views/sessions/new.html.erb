@@ -1,17 +1,17 @@
 <h5>LOG IN</h5>
 
 <%= form_tag(login_path) do %>
-    <div class="login-field">
-        <%= label_tag("Email") %>
-        <%= text_field_tag("email") %>
+    <div class='login-field'>
+        <%= label_tag('Email') %>
+        <%= text_field_tag('email') %>
     </div>
 
-    <div class="login-field">
-        <%= label_tag("Password") %>
-        <%= password_field_tag("password") %>
+    <div class='login-field'>
+        <%= label_tag('Password') %>
+        <%= password_field_tag('password') %>
     </div>
 
-    <%= button_tag("LOG IN") %>
+    <%= button_tag('LOG IN') %>
 <% end %>
 
-<%= link_to("Return to Homepage", root_path) %>
+<%= link_to('Return to Homepage', root_path) %>

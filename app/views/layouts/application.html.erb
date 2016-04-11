@@ -7,20 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header class="nav-bar">
-    <div class="container">
-       <div id="logo"><%= link_to image_tag("reddit.png", alt: "Reddit logo"),
+  <header class='nav-bar'>
+    <div class='container'>
+       <div id='logo'><%= link_to image_tag('reddit.png', alt: 'Reddit logo'),
                                            'http://reddit.com/' %></div>
-       <div class="nav-account">
+       <div class='nav-account'>
           <% if logged_in_user %>
-             <ul class="nav-logged">
-               <li><%= link_to "preferences", "#"%></li>
-  			   	   <li><%= link_to 'logout', login_path, method: :delete%></li>
+             <ul class='nav-logged'>
+               <li><%= link_to 'preferences', '#'%></li>
+  			   	   <li><%= link_to 'logout', logout_path, method: :delete%></li>
              </ul>
           <% else %>
-             <ul class="nav-not-logged">
-               <li><%= link_to "log in", login_path %></li>
-               <li><%= link_to "sign up", signup_path %></li>
+             <ul class='nav-not-logged'>
+               <li><%= link_to 'log in', login_path %></li>
+               <li><%= link_to 'sign up', new_user_path %></li>
              </ul>
           <% end %>
         </div>
