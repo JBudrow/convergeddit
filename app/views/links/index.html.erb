@@ -17,7 +17,7 @@
         <%= simple_format(link.url) %>
         <p class="link-date">submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></p>
         <%= link_to("comments", link_path(link)) %>
-        <%= link_to("edit", edit_link_path(link)) %>
+        <%= link_to "edit", @link %>
         <%= link_to("delete", link_path(link), method: :delete) %>
         <span>share</span>
         <span>save</span>
@@ -29,7 +29,7 @@
 
 <div class='side'>
   <li class='submit-link'>
-    <%= link_to 'Submit a new link', new_link_path %>
+    <%= link_to 'Submit a new link', new_user_path %>
   </li>
   <li class='submit-text'>
     <%= link_to 'Submit a new text post', '#' %>

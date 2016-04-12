@@ -5,13 +5,22 @@
   <span>top </span><%= @link.comments.count %> comments<span> show all blah</span>
 </h7>
 
-<div class='comments'>
-  <%= render :partial => @link.comments %>
+<div class='comments-form'>
+    <h6>top 200 comments</h6><%= link_to '#' %>
+    <%= form_tag link_comments_path @link.id do %>
+      <div class='comment-field'>
+          <%= label_tag('Comment') %>
+          <%= text_area_tag('body') %>
+      </div>
+      <%= button_tag('save') %>
+    <% end %>
 </div>
-<%= form_for [@link, Comment.new]  do |f| %>
-  <div class='field'>
-    <%= f.text_area :body%>
-  </div>
-  <br>
-  <%= f.submit 'save' %>
-<% end %>
+
+<div class='comments-list'>
+  <% @link.comments.each do |comment| %>
+      <div class='comment-post'>
+          <%= User.find(comment.id).name %>
+          <%= simple_format(comment.body) %>
+      </div>
+  <% end %>
+</div>
