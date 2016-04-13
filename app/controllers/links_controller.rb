@@ -22,8 +22,8 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = logged_in_user.links.new(title: params['title'],
-                                     url: params['url'])
+    @link = logged_in_user.links.new(link_params)
+
     if @link.save
       redirect_to root_url
     else
@@ -50,5 +50,11 @@ class LinksController < ApplicationController
       flash[:notice] = 'access denied'
     end
     redirect_to root_url
+  end
+
+  private
+
+  def link_params
+    params.require(:link).permit(:title, :url)
   end
 end
