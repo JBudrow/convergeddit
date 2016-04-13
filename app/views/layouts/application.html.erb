@@ -14,13 +14,13 @@
        <div class='nav-account'>
           <% if logged_in_user %>
              <ul class='nav-logged'>
-               <li><%= logged_in_user.name %></li>
+               <li><%= link_to logged_in_user.name, edit_user_path(logged_in_user.id) %></li>
                <li><%= link_to 'preferences', '#'%></li>
   			   	   <li><%= link_to 'logout', logout_path, method: :delete%></li>
              </ul>
           <% else %>
              <ul class='nav-not-logged'>
-               <li><%= link_to 'log in', login_path %></li>
+               <li><%= link_to 'log in', login_path(@user) %></li>
                <li><%= link_to 'sign up', new_user_path %></li>
              </ul>
           <% end %>
