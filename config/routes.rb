@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   delete  'logout',  to: 'sessions#destroy'
 
   resources :users,    only: [:new, :create, :edit]
-  resources :links
   resources :comments, only: [:create, :destroy]
-
+  resources :links,    only: [:new, :create, :edit, :update, :destroy] do
+    resources :votes,  only: [:create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

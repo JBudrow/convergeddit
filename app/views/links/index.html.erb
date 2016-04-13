@@ -13,8 +13,12 @@
   <% @links.each do |link| %>
     <div class="link-anchor">
       <li>
-        <h4><%= link_to link.title, link %></h4></br>
+        <!-- TODO CORRECT LINK TITLE / COMMENT  -->
+        <h4><%= link_to link.title, link_path(link) %></h4></br>
         <%= simple_format(link.url) %>
+        (<%= link.votes.sum(:score) %> points)
+        <%= link_to 'up', link_votes_path(link, score: 1), method: :post %>
+        <%= link_to 'down', link_votes_path(link, score: -1), method: :post %>
         <p class="link-date">submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></p>
         <%= link_to("comments", link_path(link)) %>
         <%= link_to("edit", edit_link_path(link)) %>
