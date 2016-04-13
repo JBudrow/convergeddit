@@ -7,7 +7,7 @@
 
 <div class='comments-form'>
     <h6>top 200 comments</h6><%= link_to '#' %>
-    <%= form_tag link_comments_path @link.id do %>
+    <%= form_tag links_path @link.id do %>
       <div class='comment-field'>
           <%= label_tag('Comment') %>
           <%= text_area_tag('body') %>
