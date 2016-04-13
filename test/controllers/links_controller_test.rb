@@ -16,10 +16,15 @@ class LinksControllerTest < ActionController::TestCase
     assert_not_nil assigns(:links)
   end
 
-  test 'should let signed in users view link form' do 
+  test 'should let signed in users view link form' do
     logged_in(:tycho)
     get :new
     assert_template :new
     assert_response :ok
+  end
+
+  test 'should show link' do
+    get :show, {id: links(:reddit).id}
+    assert_not_nil assigns(:link)
   end
 end
