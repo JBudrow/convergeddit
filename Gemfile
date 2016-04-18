@@ -50,5 +50,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
+# Makings running your Rails app easier.
 gem 'rails_12factor', group: :production
+# Loads environment variablesfrom `.env`.
+gem 'dotenv-rails', :groups => [:development, :test]
