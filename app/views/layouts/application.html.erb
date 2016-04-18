@@ -28,6 +28,10 @@
      </div>
   </header>
 
+  <% if flash[:notice] %>
+    <medium class='alert'><%= flash[:notice] %></medium>
+  <% end %>
+
 <%= yield %>
   <%= render 'layouts/footer' %>
 </body>
