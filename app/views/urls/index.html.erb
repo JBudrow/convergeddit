@@ -14,6 +14,7 @@
     <div class="url-anchor">
       <li>
         <h4><%= link_to url.title, url_path(url) %></h4></br>
+        <%= link_to image_tag url.address %>
         <%= link_to @url, Bitly.client.shorten(url.address).short_url %>
         (<%= url.votes.sum(:score) %> points)
         <%= link_to 'up', url_votes_path(url, score: 1), method: :post %>
