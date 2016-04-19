@@ -1,0 +1,12 @@
+<%= form_for @url do |f| %>
+  <div class='url-field'> <br/>
+    <%= label_tag('title') %> <br/>
+    <%= text_field_tag @url.title %>
+  </div>
+  <div class='url-field'>
+    <%= label_tag('address') %> <br/>
+    <%= text_field_tag @url.address %>
+  </div>
+  <br>
+  <%= button_tag 'submit' %>
+<% end %>

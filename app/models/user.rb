@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   validates :email, format: {
               with: /.+@.+\..+/,  message: 'Invalid email address.'
             }
-  has_many :links
+  has_many :urls
   has_many :comments
   has_many :votes
-  has_many :voted_posts, through: :votes, source: :link 
+  has_many :voted_posts, through: :votes, source: :url
 end

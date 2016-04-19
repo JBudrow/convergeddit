@@ -1,5 +1,0 @@
-<h2 class='link-title'><%= link_to_unless_current(link.title, link_path(link)) %></h2>
-<p class='link-date'>submitted <%= time_ago_in_words(link.created_at) %> ago by #name</p>
-<div class='link-body'>
-    <%= simple_format(link.url) %>
-</div>

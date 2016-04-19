@@ -1,13 +1,13 @@
-<%= render partial: 'link', locals: {link: @link} %>
+<%= render partial: 'url', locals: {url: @url} %>
 
 
 <h7 class='comments_count'>
-  <span>top </span><%= @link.comments.count %> comments<span> show all blah</span>
+  <span>top </span><%= @url.comments.count %> comments<span> show all blah</span>
 </h7>
 
 <div class='comments-form'>
     <h6>top 200 comments</h6><%= link_to '#' %>
-    <%= form_tag links_path @link.id do %>
+    <%= form_tag urls_path @url.id do %>
       <div class='comment-field'>
           <%= label_tag('Comment') %>
           <%= text_area_tag('body') %>
@@ -17,7 +17,7 @@
 </div>
 
 <div class='comments-list'>
-  <% @link.comments.each do |comment| %>
+  <% @url.comments.each do |comment| %>
       <div class='comment-post'>
           <%= User.find(comment.id).name %>
           <%= simple_format(comment.body) %>
