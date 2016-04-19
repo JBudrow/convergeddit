@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def create
-    @link = Link.find_by(params['id'])
-    @link.comments.create(comment_params)
-    redirect_to link_path(@link)
+    @url = Url.find_by(params['id'])
+    @url.comments.create(comment_params)
+    redirect_to url_path(@url)
   end
 
   private
