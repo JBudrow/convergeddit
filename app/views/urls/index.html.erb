@@ -8,34 +8,31 @@
   <span>wiki</span>
   <span>promoted</span>
 </nav>
-
-<ol class="urls">
-  <% @urls.each do |url| %>
-    <div class="url-anchor">
-      <li>
-        <h4><%= link_to url.title, url_path(url) %></h4></br>
-        <%= link_to image_tag url.address %>
-        <%= link_to @url, Bitly.client.shorten(url.address).short_url %>
-        (<%= url.votes.sum(:score) %> points)
-        <%= link_to 'up', url_votes_path(url, score: 1), method: :post %>
-        <%= link_to 'down', url_votes_path(url, score: -1), method: :post %>
-        <p class="url-date">submitted <%= time_ago_in_words(url.created_at) %> by <%= url.user.name %></p>
-        <%= link_to("comments", url_path(url)) %>
-        <%= link_to("edit", edit_url_path(url)) %>
-        <%= link_to("delete", url_path(url), method: :delete) %>
-        <span>share</span>
-        <span>save</span>
-        <span>hide</span>
-        <span>report</span>
-      </li>
+<div class='url-main'>
+    <% @urls.each do |url| %>
+  <li>
+    <h4><%= link_to url.title, url_path(url) %></h4></br>
+      <%= link_to image_tag url.address %>
+      <%= link_to @url, Bitly.client.shorten(url.address).short_url %>
+      (<%= url.votes.sum(:score) %> points)
+      <%= link_to 'up', url_votes_path(url, score: 1), method: :post %>
+      <%= link_to 'down', url_votes_path(url, score: -1), method: :post %>
+      <p class="url-date">submitted <%= time_ago_in_words(url.created_at) %> by <%= url.user.name %></p>
+      <%= link_to("comments", url_path(url)) %>
+      <%= link_to("edit", edit_url_path(url)) %>
+      <%= link_to("delete", url_path(url), method: :delete) %>
+      <span>share</span>
+      <span>save</span>
+      <span>hide</span>
+      <span>report</span>
+  </li>
   <% end %>
-</ol>
-
-<div class='side'>
-  <li class='submit-url'>
+</div>
+<div class='side-main'>
+  <div class='url-submit'>
     <%= link_to 'Submit a new url', new_url_path %>
-  </li>
-  <li class='submit-text'>
+  </div>
+  <div class='text-submit'>
     <%= link_to 'Submit a new text post', '#' %>
-  </li>
+  </div>
 </div>

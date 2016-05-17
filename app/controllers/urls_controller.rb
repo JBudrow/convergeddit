@@ -33,7 +33,7 @@ class UrlsController < ApplicationController
     url = logged_in_user.urls.new(url_params)
     client = Bitly.client
     address = client.shorten(params['address'])
-    if @url.save
+    if url.save
       redirect_to root_url
     else
       render 'new'
