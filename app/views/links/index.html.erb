@@ -1,14 +1,3 @@
-<nav class="navi-bar">
-  <span>hot</span>
-  <span>new</span>
-  <span>rising</span>
-  <span>controversial</span>
-  <span>top</span>
-  <span>gilded</span>
-  <span>wiki</span>
-  <span>promoted</span>
-</nav>
-
 <ol class="links">
   <% @links.each do |link| %>
     <div class="link-anchor">
@@ -32,10 +21,10 @@
 </ol>
 
 <div class='side'>
-  <li class='submit-link'>
+  <div class='spacer'>
     <%= link_to 'Submit a new link', new_link_path %>
-  </li>
-  <li class='submit-text'>
+  </div>
+  <div class='spacer'>
     <%= link_to 'Submit a new text post', '#' %>
-  </li>
+  </div>
 </div>

@@ -1,1 +1,40 @@
+<header class='nav-bar'>
 
+  <!-- <div class='nav-account'>
+    <% if logged_in_user %>
+    <ul class='nav-logged'>
+      <li><%= link_to logged_in_user.name, edit_user_path(logged_in_user.id) %></li>
+      <li><%= link_to 'preferences', '#'%></li>
+      <li><%= link_to 'logout', logout_path, method: :delete%></li>
+    </ul>
+    <% else %>
+    <ul class='nav-not-logged'>
+      <li><%= link_to 'log in', login_path(@user) %></li>
+      <li><%= link_to 'sign up', new_user_path %></li>
+    </ul>
+    <% end %>
+    </div>
+  </div> -->
+
+  <div class='nav' role='navigation'>
+      <div class='col-md-12'>
+        <%= image_tag('reddit.png', alt: 'Reddit Icon') %>
+        <li><a href='#' style='color:red;'>hot</a></li>
+        <li><a href='#'>new</a></li>
+        <li><a href='#'>rising</a></li>
+        <li><a href='#'>controversial</a></li>
+        <li><a href='#'>top</a></li>
+        <li><a href='#'>gilded</a></li>
+        <li><a href='#'>wiki</a></li>
+        <li><a href='#'>promoted</a></li>
+        <% if logged_in_user %>
+        <li><%= link_to logged_in_user.name, edit_user_path(logged_in_user.id) %></li>
+        <li><%= link_to 'preferences', '#'%></li>
+        <li><%= link_to 'logout', logout_path, method: :delete%></li>
+        <% else %>
+        <li style='margin-left:42em;'><%= link_to 'log in', login_path(@user) %></li>
+        <li><%= link_to 'sign up', new_user_path %></li>
+        <% end %>
+      </div>
+    </div>
+</header>
